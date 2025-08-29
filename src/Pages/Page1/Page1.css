@@ -1,0 +1,13 @@
+.games-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .game-card {
+    width: 300px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -8,6 +8,7 @@
   ],
   "main": "src/index.js",
   "dependencies": {
+    "axios": "^1.11.0",
     "core-js": "^3.45.1",
     "core-js-pure": "^3.45.1",
     "loader-utils": "3.2.1",
