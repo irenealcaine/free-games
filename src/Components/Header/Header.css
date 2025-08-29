@@ -1,0 +1,135 @@
+@import url("../../Variables.css");
+
+.header {
+  background-color: var(--main);
+  border-bottom: 2px solid var(--dark-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  padding-right: 20px;
+  padding-left: 20px;
+
+     /* fixed if you wanna to see it always, absolute if you wanna it to stay in top */
+  position: fixed;
+   /* position: absolute; */
+
+  right: 0;
+  left: 0;
+  top: 0;
+
+  z-index: 10;
+  transition: var(--transition);
+
+  &.dark {
+    background-color: var(--dark-main);
+    border-bottom: 2px solid var(--main);
+    /* color: --dark; */
+  }
+
+  .logo-link {
+    display: flex;
+
+    .logo {
+      height: calc(var(--header-height) - 10px);
+      border-radius: 100rem;
+      border: 2px solid var(--dark-main);
+      transition: var(--transition);
+
+      &.dark {
+        border: 2px solid var(--main);
+      }
+    }
+  }
+
+  .navigation {
+    display: flex;
+    gap: 25px;
+
+    .navigation-item {
+
+      &::before,
+      &::after {
+        content: "";
+        height: 0;
+        background-color: var(--dark-main);
+        position: absolute;
+        transition: var(--transition);
+        top: 50%
+      }
+
+      &:hover {
+        text-decoration: underline;
+
+      }
+
+      &.active {
+        font-weight: 700;
+        position: relative;
+
+        &::before,
+        &::after {
+          width: 3px;
+          height: 100%;
+          top: 0
+        }
+
+        &::before {
+          left: -7px;
+        }
+
+        &::after {
+          right: -7px;
+        }
+
+        &.dark {
+
+          &::before,
+          &::after {
+            background-color: var(--main);
+          }
+        }
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    .navigation {
+      display: none;
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 80px;
+        position: absolute;
+        top: calc(var(--header-height) + 5px);
+        right: 5px;
+        text-align: center;
+        z-index: 10;
+        background: var(--main);
+        border: 2px solid var(--dark-main);
+        border-radius: 15px;
+
+        /* full width */
+        /* left: 5px; */
+
+        &.dark {
+          background-color: var(--dark-main);
+          border: 2px solid var(--main);
+          /* color: --dark; */
+        }
+      }
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import "../../Variables.css";
+
+.blog-card {
+  background: linear-gradient(145deg, transparent 40%, var(--main) 120%);
+  border: 2px solid var(--main);
+  box-shadow: 2px 2px 5px var(--dark-main);
+  border-radius: 5px;
+  margin: 5px;
+  max-width: 300px;
+  overflow: hidden;
+
+  & .blog-card__image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  & .blog-card__info {
+    padding: 0px 15px 10px 15px;
+  }
+
+  & .blog-card__title,
+  & .blog-card__subtitle {
+    background: transparent;
+    text-wrap: balance;
+  }
+
+  & .blog-card__content {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  & .blog-card__author {
+    margin-top: 20px;
+    font-size: 0.85em;
+  }
+}

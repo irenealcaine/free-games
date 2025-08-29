@@ -1,0 +1,98 @@
+@import "../../Variables.css";
+
+.footer {
+  background-color: var(--main);
+  border-top: 2px solid var(--dark-main);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+
+  padding: 5px 20px;
+
+  /*  fixed if you wanna to see it always, absolute if you wanna it to stay in top */
+  position: fixed;
+  /* position: absolute; */
+
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition: var(--transition);
+
+  &.dark {
+    background-color: var(--dark-main);
+    border-top: 2px solid var(--main);
+    /* color: --dark; */
+  }
+
+  .footer-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+
+    .footer-item {
+      &::before,
+      &::after {
+        content: "";
+        height: 0;
+        background-color: var(--dark-main);
+        position: absolute;
+        transition: var(--transition);
+        top: 50%;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &.active {
+        font-weight: 700;
+        position: relative;
+
+        &::before,
+        &::after {
+          content: "";
+          width: 3px;
+          height: 100%;
+          background-color: var(--dark-main);
+          position: absolute;
+          top: 0;
+          transition: var(--transition);
+        }
+
+        &::before {
+          left: -7px;
+        }
+
+        &::after {
+          right: -7px;
+        }
+
+        &.dark {
+          &::before,
+          &::after {
+            background-color: var(--main);
+          }
+        }
+      }
+    }
+  }
+
+  .color-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .color-option {
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    .footer-list {
+      display: none;
+    }
+  }
+}

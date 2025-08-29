@@ -1,0 +1,30 @@
+@import url("../../Variables.css");
+
+.main {
+  min-height: 100vh;
+  background-color: var(--light);
+  color: var(--dark);
+  position: relative;
+
+  padding: 70px 0;
+
+  transition: var(--transition);
+
+  &.dark {
+    background-color: var(--dark);
+    color: var(--light);
+  }
+
+  .content {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    .content {
+      width: 90%;
+    }
+  }
+}
