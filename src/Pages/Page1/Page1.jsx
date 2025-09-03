@@ -1,10 +1,13 @@
 import "./Page1.css";
 import axios from "axios";
+import { DarkModeContext } from "../../Context/darkModeContext";
+import { useContext } from "react";
 
 import { useEffect, useState } from "react";
 import Button from "../../Components/Button/Button";
 
 const Page1 = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,13 +36,14 @@ const Page1 = () => {
 
       <div className="games-grid">
         {games.map((game) => (
-          <div key={game.id} className="game-card">
-            <h2>{game.title}</h2>
+          <div key={game.id} className={`game-card ${darkMode ? "dark" : ""}`}>
             <img src={game.thumbnail} alt={game.title} />
-            <p>{game.short_description}</p>
-            <p>
-              {game.genre} • {game.platform}
-            </p>
+            <h2>{game.title}</h2>
+            <div className={`tags`}>
+              <div className={`tag ${darkMode ? "dark" : ""}`}>{game.genre}</div>
+              <div className={`tag ${darkMode ? "dark" : ""}`}>{game.platform}</div>
+            </div>
+            <p className={`description ${darkMode ? "dark" : ""}`}>{game.short_description}</p>
             <div className="button-grid">
               <Button value={"Details"} className={"game-button"}/>
               <Button value={"Game's web"} color={"secondary"} href={game.game_url} className={"game-button"}/>
