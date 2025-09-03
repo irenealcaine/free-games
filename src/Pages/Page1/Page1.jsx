@@ -8,10 +8,6 @@ const Page1 = () => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log("URL:", process.env.REACT_APP_URL);
-  console.log("HOST:", process.env.REACT_APP_HOST);
-  console.log("KEY:", process.env.REACT_APP_KEY);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,7 +19,6 @@ const Page1 = () => {
         });
 
         setGames(response.data);
-        // console.log(gameData)
       } catch (error) {
         console.error("Error al obtener datos:", error);
       }
@@ -41,11 +36,14 @@ const Page1 = () => {
           <div key={game.id} className="game-card">
             <h2>{game.title}</h2>
             <img src={game.thumbnail} alt={game.title} />
+            <p>{game.short_description}</p>
             <p>
               {game.genre} • {game.platform}
             </p>
-            <Button value={"Ver detalles"} />
-            <Button value={"Ir a la páina del juego"} color={"secondary"} href={game.game_url}/>
+            <div className="button-grid">
+              <Button value={"Details"} className={"game-button"}/>
+              <Button value={"Game's web"} color={"secondary"} href={game.game_url} className={"game-button"}/>
+            </div>
           </div>
         ))}
       </div>
