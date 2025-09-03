@@ -45,10 +45,7 @@ const Page1 = () => {
               {game.genre} • {game.platform}
             </p>
             <Button value={"Ver detalles"} />
-            <Button value={"Ir a la páina del juego"} color={"secondary"} />
-            <a href={game.game_url} target="_blank" rel="noreferrer">
-              Ver juego
-            </a>
+            <Button value={"Ir a la páina del juego"} color={"secondary"} href={game.game_url}/>
           </div>
         ))}
       </div>
