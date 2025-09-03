@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { navbarItems } from "../../Utils/Constants";
+import { navbarItems,socialMediaItems } from "../../Utils/Constants";
 import "./Footer.css";
 import { Link, useLocation } from "react-router-dom";
 import { DarkModeContext } from "../../Context/darkModeContext";
+import { MdOutlineLightMode,MdOutlineNightlight  } from "react-icons/md";
 
 const Footer = () => {
   const { dispatch, darkMode } = useContext(DarkModeContext);
@@ -11,37 +12,24 @@ const Footer = () => {
   return (
     <nav className={` footer ${darkMode ? "dark" : ""}`}>
       <ul className="footer-list">
-        {navbarItems.map((navbarItem) => (
+        {socialMediaItems.map((SMItem) => (
           <li
-            key={navbarItem.slug}
-            className={`footer-item ${
-              location.pathname === `/${navbarItem.slug}` && "active"
-            } ${darkMode ? "dark" : ""}`}
+            key={SMItem.name}
+            className={`footer-item ${darkMode ? "dark" : ""}`}
           >
-            <Link to={`/${navbarItem.slug}`}>{navbarItem.name}</Link>
+            <a href={SMItem.url} target="_blank">{SMItem.icon}</a>
           </li>
         ))}
-      </ul>
-      <div className="color-options">
+
         <div
-          className="color-option"
-          onClick={() => dispatch({ type: "LIGHT" })}
-        >
-          ⚪
-        </div>
-        <div
-          className="color-option"
-          onClick={() => dispatch({ type: "DARK" })}
-        >
-          ⚫
-        </div>
-        <div
-          className="color-option"
+          className="footer-item color-option"
           onClick={() => dispatch({ type: "TOGGLE" })}
         >
-          {darkMode ? "☀️" : "🌙"}
+          {darkMode ? <MdOutlineLightMode /> : <MdOutlineNightlight />}
         </div>
-      </div>
+
+      </ul>
+      
     </nav>
   );
 };

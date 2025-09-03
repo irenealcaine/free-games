@@ -8,91 +8,75 @@
   align-items: center;
   gap: 20px;
 
-  padding: 5px 20px;
+  padding: 10px 10px;
 
-  /*  fixed if you wanna to see it always, absolute if you wanna it to stay in top */
+  /*  fixed if you wanna to see it always, absolute if you wanna it to stay in bottom */
   position: fixed;
   /* position: absolute; */
 
+  /* if you like it tiny */
+  border-left: 2px solid var(--dark-main);
+  border-top-left-radius: 16px;
+
+  /* large */
+  /* left: 0; */
+
   right: 0;
-  left: 0;
   bottom: 0;
   transition: var(--transition);
+
+  .footer-list {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 15px;
+
+    .footer-item {
+      font-size: 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & div, & a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & svg{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &:hover{
+        filter: drop-shadow(0 0 2px var(--dark-main)) drop-shadow(0 0 4px var(--dark-main))
+      }
+
+      &.color-option{
+        margin-left: 15px;
+        cursor:pointer;
+      }
+    }
+  }
 
   &.dark {
     background-color: var(--dark-main);
     border-top: 2px solid var(--main);
     /* color: --dark; */
-  }
 
-  .footer-list {
-    display: flex;
-    justify-content: flex-end;
-    gap: 25px;
+    /* only tiny */
+    border-left: 2px solid var(--main);
 
-    .footer-item {
-      &::before,
-      &::after {
-        content: "";
-        height: 0;
-        background-color: var(--dark-main);
-        position: absolute;
-        transition: var(--transition);
-        top: 50%;
-      }
-
-      &:hover {
-        text-decoration: underline;
-      }
-
-      &.active {
-        font-weight: 700;
-        position: relative;
-
-        &::before,
-        &::after {
-          content: "";
-          width: 3px;
-          height: 100%;
-          background-color: var(--dark-main);
-          position: absolute;
-          top: 0;
-          transition: var(--transition);
-        }
-
-        &::before {
-          left: -7px;
-        }
-
-        &::after {
-          right: -7px;
-        }
-
-        &.dark {
-          &::before,
-          &::after {
-            background-color: var(--main);
-          }
-        }
+    
+    .footer-item{
+      &:hover{
+        filter: drop-shadow(0 0 2px var(--main)) drop-shadow(0 0 4px var(--main))
       }
     }
+    
   }
 
-  .color-options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .color-option {
-      cursor: pointer;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .footer {
-    .footer-list {
-      display: none;
-    }
-  }
+  
 }
