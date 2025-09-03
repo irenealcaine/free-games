@@ -1,4 +1,4 @@
-import "./Page1.css";
+import "./FreeGames.css";
 import axios from "axios";
 import { DarkModeContext } from "../../Context/darkModeContext";
 import { useContext } from "react";
@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { useEffect, useState } from "react";
 import GameCard from "../../Components/GameCard/GameCard";
 
-const Page1 = () => {
+const FreeGamesPage = () => {
   const { darkMode } = useContext(DarkModeContext);
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ const Page1 = () => {
 
   return (
     <div className="page1">
-      <h1>Page 1</h1>
+      <h1>Free games</h1>
 
       <div className="games-grid">
         {games.map((game) => (
@@ -52,4 +52,4 @@ const Page1 = () => {
   );
 };
 
-export default Page1;
+export default FreeGamesPage;
