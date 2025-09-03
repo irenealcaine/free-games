@@ -8,37 +8,37 @@
 
   .game-card {
     position: relative;
-  width: 49%;
-  min-width: 320px;
-  border-radius: 16px;
-  overflow: hidden;
-  background-color: white;
+    width: 49%;
+    height: fit-content;
+    min-width: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--light);
 
-  &.dark{
-      background-color: black;
-      &::before {
-        background: linear-gradient(to right, var(--dark-main), var(--main));
+    &.dark{
+        background-color: var(--dark);
+        &::before {
+          background: linear-gradient(115deg, var(--dark-main), var(--main));
+        }
       }
+    z-index: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0; 
+      padding: 2px;
+      background: linear-gradient(115deg, var(--main), var(--dark-main));
+
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude; 
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 1;
     }
-  z-index: 0;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0; 
-    padding: 2px;
-    background: linear-gradient(to right, var(--main), var(--dark-main));
-
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude; 
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 1;
-  }
-
 
     img {
       width: 100%;
@@ -78,10 +78,10 @@
     }
     .description{
       padding: 20px;
-      background: linear-gradient(to right, var(--main) 90%, var(--dark-main) 100%);
+      background: linear-gradient(115deg, var(--main) 75%, var(--dark-main) 100%);
 
       &.dark{
-        background: linear-gradient(to right, var(--dark-main) 90%, var(--main)100%);
+        background: linear-gradient(115deg, var(--dark-main) 75%, var(--main)100%);
       }
     }
   }
