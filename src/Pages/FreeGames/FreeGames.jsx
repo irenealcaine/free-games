@@ -37,7 +37,7 @@ const FreeGamesPage = () => {
       <div className="games-grid">
         {games.map((game) => (
           <GameCard 
-            key={game.id} 
+            id={game.id} 
             img={game.thumbnail} 
             alt={game.title} 
             title={game.title} 

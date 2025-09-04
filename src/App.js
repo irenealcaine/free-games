@@ -7,6 +7,7 @@ import Page2 from "./Pages/Page2/Page2";
 import Page3 from "./Pages/Page3/Page3";
 import Page4 from "./Pages/Page4/Page4";
 import FreeGamesPage from "./Pages/FreeGames/FreeGames";
+import GameDetailsPage from "./Pages/GameDetails/GameDetails";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/games" element={<FreeGamesPage />} />
+            <Route path="/free-games" element={<FreeGamesPage />} />
+            <Route path="/game/:id" element={<GameDetailsPage />} />
             <Route path="/giveaways" element={<Page2 />} />
             <Route path="/page3" element={<Page3 />} />
             <Route path="/page4" element={<Page4 />} />

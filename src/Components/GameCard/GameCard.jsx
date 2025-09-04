@@ -3,11 +3,11 @@ import { useContext } from "react";
 import Button from "../Button/Button";
 import "./GameCard.css"
 
-const GameCard = ({key, img, alt, title, genre, platform, description, url}) => {
+const GameCard = ({id, img, alt, title, genre, platform, description, url}) => {
     const { darkMode } = useContext(DarkModeContext);
     
     return (
-        <div key={key} className={`game-card ${darkMode ? "dark" : ""}`}>
+        <div key={id} className={`game-card ${darkMode ? "dark" : ""}`}>
             <img src={img} alt={alt} />
             <h2>{title}</h2>
             <div className={`tags`}>
@@ -16,7 +16,7 @@ const GameCard = ({key, img, alt, title, genre, platform, description, url}) => 
             </div>
             <p className={`description ${darkMode ? "dark" : ""}`}>{description}</p>
             <div className="button-grid">
-              <Button value={"Details"} className={"game-button"}/>
+              <Button value={"Details"} to={`/game/${id}`} className={"game-button"}/>
               <Button value={"Game's web"} color={"secondary"} href={url} className={"game-button"}/>
             </div>
           </div>

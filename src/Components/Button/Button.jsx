@@ -1,8 +1,9 @@
 import "./Button.css";
 import { DarkModeContext } from "../../Context/darkModeContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
-const Button = ({ value, onClick, className, color, disabled, href }) => {
+const Button = ({ value, onClick, className, color, disabled, href, to }) => {
   const { darkMode } = useContext(DarkModeContext);
 
   if (href && !disabled) {
@@ -15,6 +16,17 @@ const Button = ({ value, onClick, className, color, disabled, href }) => {
       >
         {value}
       </a>
+    );
+  }
+
+  if (to && !disabled) {
+    return (
+      <Link
+        to={to}
+        className={`button ${color} ${className} ${darkMode ? "dark" : ""}`}
+      >
+        {value}
+      </Link>
     );
   }
 
