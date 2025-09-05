@@ -1,0 +1,74 @@
+.game-details {
+
+    .game-head {
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+
+        img {
+            max-width: 350px;
+            height: auto;
+            border-radius: 16px;
+
+        }
+
+        .game-info {
+            width: 100%;
+            border: 2px solid blue;
+            padding: 16px;
+            border-radius: 16px;
+
+            h1 {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .game-description {
+        background-color: blue;
+        padding: 16px;
+        margin: 16px 0;
+        border-radius: 16px;
+    }
+
+    .game-requirements {
+        .requirements {
+            display: flex;
+            flex-wrap: wrap;
+
+            .requirement {
+
+                text-transform: capitalize;
+                width: 50%;
+
+                span {
+                    font-weight: 600;
+                }
+
+            }
+        }
+    }
+
+    .game-images {
+        display: flex;
+        gap: 8px;
+
+        img {
+            width: 25%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .game-details {
+
+        .game-head {
+            flex-direction: column;
+
+
+
+        }
+
+
+    }
+}
