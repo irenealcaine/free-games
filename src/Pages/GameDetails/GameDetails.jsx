@@ -5,6 +5,7 @@ import { useContext } from "react";
 import axios from "axios";
 import "./GameDetails.css"
 import Tag from "../../Components/Tag/Tag";
+import BackButton from "../../Components/BackButton/BackButton";
 
 
 const GameDetailsPage = () => {
@@ -35,6 +36,7 @@ const GameDetailsPage = () => {
 
   return (
     <div className="game-details">
+      <BackButton to={`/free-games`} value={"Back"}/>
       <div className="game-head">
         <img src={game.thumbnail} />
         <div className={`game-info ${darkMode ? "dark" : null}`}>

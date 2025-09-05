@@ -1,0 +1,48 @@
+.backButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: smaller;
+    width: fit-content;
+    padding: 4px 12px;
+    border-radius: 500px;
+    border: 1px solid var(--main);
+    color: var(--dark-main);
+    margin-bottom: 20px;
+    transition: all .3s ease;
+    position: relative;
+
+    &.dark{
+        border: 1px solid var(--dark-main);
+        color: var(--main);
+    }
+
+    &:hover {
+        background-color: var(--main);
+        color: var(--dark-main);
+        padding-left: 25px;
+
+        &.dark{
+            background-color: var(--dark-main);
+        color: var(--main);
+        }
+
+        span{
+            transform: translateX(-20px);
+            opacity: 1
+        }
+    }
+
+    span {
+        display: flex;
+        transition: all .3s ease;
+        position: absolute;
+        opacity: 0;
+
+        &:hover {
+            
+        }
+
+    }
+
+}

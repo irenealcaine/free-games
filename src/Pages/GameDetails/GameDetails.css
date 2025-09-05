@@ -15,7 +15,7 @@
         .game-info {
             width: 100%;
             border: 2px solid var(--main);
-            padding: 16px;
+            padding: 16px 24px;
             border-radius: 16px;
 
             &.dark {
@@ -95,12 +95,7 @@
                 width: 50%;
             }
         }
-        .game-requirements {
-            .requirements {
-                .requirement {
-                }
-            }
-        }
+        
     }
 
 }
