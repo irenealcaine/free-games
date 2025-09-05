@@ -1,6 +1,7 @@
 import { DarkModeContext } from "../../Context/darkModeContext";
 import { useContext } from "react";
 import Button from "../Button/Button";
+import Tag from "../Tag/Tag";
 import "./GameCard.css"
 
 const GameCard = ({id, img, alt, title, genre, platform, description, url}) => {
@@ -11,8 +12,8 @@ const GameCard = ({id, img, alt, title, genre, platform, description, url}) => {
             <img src={img} alt={alt} />
             <h2>{title}</h2>
             <div className={`tags`}>
-              <div className={`tag ${darkMode ? "dark" : ""}`}>{genre}</div>
-              <div className={`tag ${darkMode ? "dark" : ""}`}>{platform}</div>
+              <Tag tag={genre}/>
+              <Tag tag={platform}/>
             </div>
             <p className={`description ${darkMode ? "dark" : ""}`}>{description}</p>
             <div className="button-grid">

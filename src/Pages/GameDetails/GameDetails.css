@@ -14,44 +14,69 @@
 
         .game-info {
             width: 100%;
-            border: 2px solid blue;
+            border: 2px solid var(--main);
             padding: 16px;
             border-radius: 16px;
 
+            &.dark {
+                border: 2px solid var(--dark-main);
+            }
+
             h1 {
                 margin-top: 0;
+            }
+
+            .tags {
+                display: flex;
+                gap: 8px;
+                margin-top: -8px;
+                margin-bottom: 16px;
+
+            }
+
+            p {
+                span {
+                    font-weight: 600;
+                    font-size: larger;
+                }
             }
         }
     }
 
     .game-description {
-        background-color: blue;
-        padding: 16px;
+        background: linear-gradient(115deg, var(--main) 80%, var(--dark-main) 100%);
+        padding: 16px 32px;
         margin: 16px 0;
         border-radius: 16px;
+
+        &.dark {
+            background: linear-gradient(115deg, var(--dark-main) 80%, var(--main) 100%);
+
+        }
     }
 
     .game-requirements {
         .requirements {
-            display: flex;
-            flex-wrap: wrap;
 
             .requirement {
 
-                text-transform: capitalize;
-                width: 50%;
+                    text-transform: capitalize;
+                    margin: 0 24px;
+                                        list-style-type: disc;
 
-                span {
-                    font-weight: 600;
-                }
+                    span {
+                        font-weight: 600;
+                    }
 
+                   
             }
         }
     }
 
     .game-images {
+        margin-top: 16px;
         display: flex;
-        gap: 8px;
+        flex-wrap: wrap;
 
         img {
             width: 25%;
@@ -61,14 +86,21 @@
 
 @media screen and (max-width: 768px) {
     .game-details {
-
         .game-head {
             flex-direction: column;
-
-
-
         }
 
-
+        .game-images {
+            img {
+                width: 50%;
+            }
+        }
+        .game-requirements {
+            .requirements {
+                .requirement {
+                }
+            }
+        }
     }
+
 }

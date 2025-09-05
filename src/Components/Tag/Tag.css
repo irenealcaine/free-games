@@ -1,0 +1,11 @@
+.tag {
+    color: var(--dark-main);
+    background-color: var(--main);
+    border-radius: 100px;
+    padding: 2px 10px;
+
+    &.dark {
+        color: var(--main);
+        background-color: var(--dark-main);
+    }
+}
