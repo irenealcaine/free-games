@@ -9,6 +9,9 @@ export const navbarItems = [
   }, {
     "name": "Giveaways",
     "slug": "giveaways"
+  }, {
+    "name": "GFN Games",
+    "slug": "gfn-games"
   },
 ]
 

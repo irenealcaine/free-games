@@ -20,7 +20,7 @@ function App() {
             <Route path="/free-games" element={<FreeGamesPage />} />
             <Route path="/game/:id" element={<GameDetailsPage />} />
             <Route path="/giveaways" element={<Page2 />} />
-            <Route path="/page3" element={<Page3 />} />
+            <Route path="/gfn-games" element={<Page3 />} />s
             <Route path="/page4" element={<Page4 />} />
           </Routes>
         </Main>
