@@ -5,11 +5,14 @@ import { useContext } from "react";
 
 import { useEffect, useState } from "react";
 import GameCard from "../../Components/GameCard/GameCard";
+import Loader from "../../Components/Loader/Loader";
+import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 
 const FreeGamesPage = () => {
   const { darkMode } = useContext(DarkModeContext);
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,8 +25,11 @@ const FreeGamesPage = () => {
         });
 
         setGames(response.data);
+        setLoading(false)
       } catch (error) {
         console.error("Error al obtener datos:", error);
+        setLoading(false)
+        setError("Error al obtener datos")
       }
     };
 
@@ -34,20 +40,26 @@ const FreeGamesPage = () => {
     <div className="page1">
       <h1>Free games</h1>
 
-      <div className="games-grid">
-        {games.map((game) => (
-          <GameCard 
-            id={game.id} 
-            img={game.thumbnail} 
-            alt={game.title} 
-            title={game.title} 
-            genre={game.genre} 
-            platform={game.platform} 
-            description={game.short_description} 
-            url={game.game_url}
-          />
-        ))}
-      </div>
+      {loading && <Loader />}
+
+      {error && <ErrorMessage error={error}/>}
+
+      {!loading && !error && (
+        <div className="games-grid">
+          {games.map((game) => (
+            <GameCard
+              id={game.id}
+              img={game.thumbnail}
+              alt={game.title}
+              title={game.title}
+              genre={game.genre}
+              platform={game.platform}
+              description={game.short_description}
+              url={game.game_url}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

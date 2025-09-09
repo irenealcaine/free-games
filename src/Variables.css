@@ -14,8 +14,8 @@
   --dark-red: #800101;
 
   /* main color */
-  --main: var(--red);
-  --dark-main: var(--dark-purple);
+  --main: var(--green);
+  --dark-main: var(--dark-green);
 
   --header-height: 50px;
 
