@@ -1,6 +1,7 @@
 .page3{
     .tags{
         display: flex;
+        flex-wrap: wrap;
         gap:8px;
     }
 }

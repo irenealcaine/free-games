@@ -5,8 +5,6 @@ import { useContext } from "react";
 
 import { useEffect, useState } from "react";
 import GameCard from "../../Components/GameCard/GameCard";
-import Loader from "../../Components/Loader/Loader";
-import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 import Content from "../../Components/Content/Content";
 
 const FreeGamesPage = () => {
