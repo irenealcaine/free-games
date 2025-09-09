@@ -6,6 +6,7 @@ import axios from "axios";
 import "./GameDetails.css"
 import Tag from "../../Components/Tag/Tag";
 import BackButton from "../../Components/BackButton/BackButton";
+import Content from "../../Components/Content/Content";
 
 
 const GameDetailsPage = () => {
@@ -13,6 +14,8 @@ const GameDetailsPage = () => {
   const { id } = useParams();
   const [game, setGame] = useState([]);
   const { darkMode } = useContext(DarkModeContext);
+    const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
 
   useEffect(() => {
@@ -26,8 +29,12 @@ const GameDetailsPage = () => {
         });
 
         setGame(response.data);
+        setLoading(false)
+
       } catch (error) {
         console.error("Error al obtener datos:", error);
+        setLoading(false)
+        setError("Error al obtener datos")
       }
     };
 
@@ -35,49 +42,56 @@ const GameDetailsPage = () => {
   }, []);
 
   return (
-    <div className="game-details">
-      <BackButton to={`/free-games`} value={"Back"}/>
-      <div className="game-head">
-        <img src={game.thumbnail} />
-        <div className={`game-info ${darkMode ? "dark" : null}`}>
-          <h1>{game.title}</h1>
-          <div className="tags">
-            <Tag tag={game.genre} />
-            <Tag tag={game.platform} />
+    <Content
+      loading={loading}
+      error={error}
+    >
+      <div className="game-details">
+
+
+
+        <BackButton to={`/free-games`} value={"Back"} />
+        <div className="game-head">
+          <img src={game.thumbnail} />
+          <div className={`game-info ${darkMode ? "dark" : null}`}>
+            <h1>{game.title}</h1>
+            <div className="tags">
+              <Tag tag={game.genre} />
+              <Tag tag={game.platform} />
+            </div>
+            <p>Developed by <span>{game.developer}</span></p>
+            <p>Published by <span>{game.publisher}</span></p>
+            <p>Released in <span>{game.release_date}</span></p>
           </div>
-          <p>Developed by <span>{game.developer}</span></p>
-          <p>Published by <span>{game.publisher}</span></p>
-          <p>Released in <span>{game.release_date}</span></p>
         </div>
+        <p className={`game-description ${darkMode ? "dark" : null}`}>{game.description}</p>
+
+        {/* <p>{game.status}</p> */}
+
+        {game.minimum_system_requirements
+          ? <div className="game-requirements">
+            <h2>Minimum system requirements</h2>
+            <ul className="requirements">
+              {Object.entries(game.minimum_system_requirements).map(([key, value]) =>
+                value ? (
+                  <li className="requirement" key={key}>
+                    {key}: <span>{value}</span>
+                  </li>
+                ) : null
+              )}
+            </ul>
+          </div>
+          : ""}
+
+        <h2>Game screenshots</h2>
+
+        {game.screenshots ? <div className="game-images">
+          {game.screenshots.map((img) => (
+            <img src={img.image} />
+          ))}
+        </div> : null}
       </div>
-      <p className={`game-description ${darkMode ? "dark" : null}`}>{game.description}</p>
-
-      {/* <p>{game.status}</p> */}
-
-      {game.minimum_system_requirements
-        ? <div className="game-requirements">
-          <h2>Minimum system requirements</h2>
-          <ul className="requirements">
-            {Object.entries(game.minimum_system_requirements).map(([key, value]) =>
-              value ? (
-                <li className="requirement" key={key}>
-                  {key}: <span>{value}</span>
-                </li>
-              ) : null
-            )}
-          </ul>
-        </div>
-        : ""}
-
-      <h2>Game screenshots</h2>
-
-      {game.screenshots ? <div className="game-images">
-        {game.screenshots.map((img) => (
-          <img src={img.image} />
-        ))}
-      </div> : null}
-    </div>
-
+    </Content>
 
   );
 };

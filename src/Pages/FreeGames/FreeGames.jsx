@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import GameCard from "../../Components/GameCard/GameCard";
 import Loader from "../../Components/Loader/Loader";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
+import Content from "../../Components/Content/Content";
 
 const FreeGamesPage = () => {
   const { darkMode } = useContext(DarkModeContext);
@@ -40,11 +41,10 @@ const FreeGamesPage = () => {
     <div className="page1">
       <h1>Free games</h1>
 
-      {loading && <Loader />}
-
-      {error && <ErrorMessage error={error}/>}
-
-      {!loading && !error && (
+      <Content
+        loading={loading}
+        error={error}
+      >
         <div className="games-grid">
           {games.map((game) => (
             <GameCard
@@ -59,7 +59,8 @@ const FreeGamesPage = () => {
             />
           ))}
         </div>
-      )}
+      </Content>
+
     </div>
   );
 };
