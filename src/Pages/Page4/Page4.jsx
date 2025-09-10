@@ -52,44 +52,23 @@ const Page4 = () => {
         loading={loading}
         error={error}
       >
-        {/* {exploreGames.map((game) => (
-          <div>
-            <h2>{game.name}</h2>
-            <img src={game.image}/>
-            <p>{game.genre}</p>
-            <Button href={game.link} value={"Link"}/>
-            <Button to={`/game-details/${game.id}`} value={"Details"}/>
-            <p>{game.year}</p>
-            <p>{game.rating.mean} - {game.rating.count}</p>
-            {game.short_description ? <p>{game.short_description}</p> : null}
-            {game.screenshots 
-            ? <div>
-              <h3>Screenshots</h3>
-              {game.screenshots.map((image)=>(
-                <img src={image}/>
-              ))}
-              
-              </div>
-            : null}
-
-            
-
-          </div>
-        ))} */}
-        {exploreGames.map((game) => (
-          <ExploreCard
-            id={game.id} 
-            name={game.name} 
-            image={game.image} 
-            genre={game.genre} 
-            link={game.link} 
-            year={game.year} 
-            ratingMean={game.rating.mean} 
-            ratingCount={game.rating.count} 
-            description={game.short_description} 
-            screenshots={game.screenshots}
-          />
-        ))}
+        <div className="explore-grid">
+          {exploreGames.map((game) => (
+            <ExploreCard
+              id={game.id}
+              name={game.name}
+              image={game.image}
+              genre={game.genre}
+              link={game.link}
+              year={game.year}
+              ratingMean={game.rating.mean}
+              ratingCount={game.rating.count}
+              description={game.short_description}
+              screenshots={game.screenshots}
+              adult={game.adult_only}
+            />
+          ))}
+        </div>
       </Content>
     </div>
   );

@@ -1,0 +1,7 @@
+.explore-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    align-items: stretch;
+    padding: 1rem;
+}
