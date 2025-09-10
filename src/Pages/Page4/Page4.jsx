@@ -6,6 +6,7 @@ import Tag from "../../Components/Tag/Tag";
 import Hr from "../../Components/Hr/Hr";
 import Content from "../../Components/Content/Content";
 import { exploreGamesExample } from "../../Data/ExploreGames";
+import ExploreCard from "../../Components/ExploreCadrd/ExploreCard";
 
 const Page4 = () => {
 
@@ -51,11 +52,13 @@ const Page4 = () => {
         loading={loading}
         error={error}
       >
-        {exploreGames.map((game) => (
+        {/* {exploreGames.map((game) => (
           <div>
             <h2>{game.name}</h2>
             <img src={game.image}/>
             <p>{game.genre}</p>
+            <Button href={game.link} value={"Link"}/>
+            <Button to={`/game-details/${game.id}`} value={"Details"}/>
             <p>{game.year}</p>
             <p>{game.rating.mean} - {game.rating.count}</p>
             {game.short_description ? <p>{game.short_description}</p> : null}
@@ -72,6 +75,20 @@ const Page4 = () => {
             
 
           </div>
+        ))} */}
+        {exploreGames.map((game) => (
+          <ExploreCard
+            id={game.id} 
+            name={game.name} 
+            image={game.image} 
+            genre={game.genre} 
+            link={game.link} 
+            year={game.year} 
+            ratingMean={game.rating.mean} 
+            ratingCount={game.rating.count} 
+            description={game.short_description} 
+            screenshots={game.screenshots}
+          />
         ))}
       </Content>
     </div>
