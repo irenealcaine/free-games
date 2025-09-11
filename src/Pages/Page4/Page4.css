@@ -1,3 +1,8 @@
+.form{
+    display: flex;
+    gap: 8px;
+}
+
 .explore-grid {
     display: grid;
     gap: 16px;

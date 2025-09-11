@@ -1,24 +1,26 @@
 import "./Page4.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Button from "../../Components/Button/Button";
-import Tag from "../../Components/Tag/Tag";
-import Hr from "../../Components/Hr/Hr";
 import Content from "../../Components/Content/Content";
 import { exploreGamesExample } from "../../Data/ExploreGames";
 import ExploreCard from "../../Components/ExploreCadrd/ExploreCard";
+import Input from "../../Components/Input/Input";
+import Button from "../../Components/Button/Button";
 
 const Page4 = () => {
 
   const [exploreGames, setExploreGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [query, setQuery] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   // useEffect(() => {
   //   async function obtenerExplore() {
-  //     const url = "https://api.gamebrain.co/v1/games?query=simulation";
+  //     setLoading(true)
+  //     const url = "https://api.gamebrain.co/v1/games?query=";
   //     try {
-  //       const res = await axios.get(url, {
+  //       const res = await axios.get(url + query, {
   //         headers: {
   //           'x-api-key': process.env.REACT_APP_GAMEBRAIN_KEY,
   //         },
@@ -35,8 +37,9 @@ const Page4 = () => {
   //     }
   //   }
   //   obtenerExplore();
+  //   {console.log(query)}
+  // }, [query]);
 
-  // }, []);
 
   useEffect(() => {
     setExploreGames(exploreGamesExample);
@@ -46,7 +49,20 @@ const Page4 = () => {
   return (
     <div className="page4">
       <h1>Page 4</h1>
-      {console.log(exploreGames)}
+
+      <h2>What are you looking for?</h2>
+      <div className="form">
+        <Input 
+        placeholder={"space games, simulations, fantasy games..."}
+        value={inputValue} 
+        onChange={(e) => setInputValue(e.target.value)}
+        />
+        <Button 
+        value={"Search"} 
+        onClick={() => setQuery(inputValue)}
+        />
+      </div>
+
 
       <Content
         loading={loading}
