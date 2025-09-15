@@ -35,9 +35,9 @@ const ExploreCard = ({ id, name, image, genre, link, year, ratingMean, ratingCou
                 <p className="desc">{description ?? "Descripción no disponible."}</p>
 
             </div>
-{/* 
+ 
             <Button href={link} value={"Link"} />
-            <Button color={"secondary"} to={`/game-details/${id}`} value={"Details"} /> */}
+            <Button color={"secondary"} to={`/explore-game-details/${id}`} value={"Details"} /> 
 
         </div>
     );
