@@ -1,144 +1,94 @@
 .explore-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.06));
-    border-radius: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  .thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
-    transition: transform 220ms cubic-bezier(.2, .9, .2, 1), box-shadow 220ms;
-    will-change: transform;
+    background: linear-gradient(90deg, #081124, #0b1220);
 
-    .thumb {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        overflow: hidden;
-        background: linear-gradient(90deg, #081124, #0b1220);
-
-        .thumb-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transform-origin: center;
-            transition: transform 350ms ease;
-        }
-
-        .badges {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            display: flex;
-            gap: 6px;
-            z-index: 2;
-
-            .badge {
-                background: rgba(2, 6, 23, 0.6);
-                color: #e6eef8;
-                font-size: 12px;
-                padding: 6px 8px;
-                border-radius: 999px;
-                backdrop-filter: blur(4px);
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-
-                &.year {
-                    opacity: 0.9;
-                    font-weight: 600;
-                }
-
-                &.genre {
-                    background: linear-gradient(90deg, #7dd3fc, #60a5fa);
-                    color: #012;
-                }
-            }
-        }
+    .thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform-origin: center;
+      transition: transform 350ms ease;
     }
 
-    .explore-body {
-        padding: 0.8rem 0.9rem 1.1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        flex: 1 1 auto;
+    .badges {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+  }
 
-        .title {
-            font-size: 1.05rem;
-            line-height: 1.2;
-            color: #e6eef8;
-            margin: 0;
-            margin-bottom: 2px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+  .explore-body {
+    padding: 0.8rem 0.9rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1 1 auto;
 
-        .meta {
-            display: flex;
-            gap: 0.6rem;
-            align-items: center;
-            font-size: 0.88rem;
-            color: #9aa6b2;
+    .meta {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      font-size: 0.88rem;
+      color: #9aa6b2;
 
-            .rating {
-                font-weight: 700;
-                color: #7dd3fc;
-            }
-
-            .adult {
-                background: #ffb4b4;
-                color: #3a0218;
-                padding: 2px 6px;
-                border-radius: 6px;
-                font-size: 0.75rem;
-                font-weight: 700;
-            }
-        }
-
-        .screenshots {
-            display: flex;
-            gap: 6px;
-            overflow-x: auto;
-            padding-top: 6px;
-            padding-bottom: 6px;
-            -webkit-overflow-scrolling: touch;
-
-            .shot {
-                width: 72px;
-                height: 42px;
-                object-fit: cover;
-                border-radius: 6px;
-                flex: 0 0 auto;
-                box-shadow: 0 4px 10px rgba(2, 6, 23, 0.6);
-            }
-
-        }
-
-        .screenshots::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .screenshots::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 8px;
-        }
-
-        .desc {
-            color: #9aa6b2;
-            font-size: 0.88rem;
-            margin: 0;
-            margin-top: 4px;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
+      .rating {
+        font-weight: 700;
+        color: #7dd3fc;
+      }
     }
 
+    .screenshots {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
 
+      .shot {
+        width: 72px;
+        height: 42px;
+        object-fit: cover;
+        border-radius: 6px;
+        flex: 0 0 auto;
+        box-shadow: 0 4px 10px rgba(2, 6, 23, 0.6);
+      }
+    }
 
-    /* .explore-screenshots{
+    .screenshots::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .screenshots::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+    }
+
+    .desc {
+      color: #9aa6b2;
+      font-size: 0.88rem;
+      margin: 0;
+      margin-top: 4px;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  /* .explore-screenshots{
         display: flex;
         flex-wrap: wrap;
         img{
@@ -150,34 +100,24 @@
     } */
 }
 
-.explore-card:hover,
-.explore-card:focus-within {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 14px 36px rgba(2, 6, 23, 0.7);
-}
-
-.explore-card:hover .thumb-img {
-    transform: scale(1.06);
-}
-
 /* Responsive tweaks */
 @media (min-width: 1100px) {
-    .thumb-img {
-        transition-duration: 400ms;
-    }
+  .thumb-img {
+    transition-duration: 400ms;
+  }
 }
 
 @media (max-width: 520px) {
-    .screenshots {
-        gap: 8px;
-    }
+  .screenshots {
+    gap: 8px;
+  }
 
-    .shot {
-        width: 84px;
-        height: 48px;
-    }
+  .shot {
+    width: 84px;
+    height: 48px;
+  }
 
-    .title {
-        font-size: 1rem;
-    }
+  .title {
+    font-size: 1rem;
+  }
 }

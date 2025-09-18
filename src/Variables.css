@@ -13,9 +13,18 @@
   --red: #ff7575;
   --dark-red: #800101;
 
+  /* trasparent */
+  --green-transparent: #22ee6699;
+  --dark-green-transparent: #00642b99;
+  --red-transparent: #ff757599;
+  --dark-red-transparent: #80010199;
+
   /* main color */
   --main: var(--green);
   --dark-main: var(--dark-green);
+
+  --main-transparent: var(--green-transparent);
+  --dark-main-transparent: var(--dark-green-transparent);
 
   --header-height: 50px;
 

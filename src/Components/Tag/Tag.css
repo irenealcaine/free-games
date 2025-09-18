@@ -1,11 +1,23 @@
 .tag {
-    color: var(--dark-main);
-    background-color: var(--main);
-    border-radius: 100px;
-    padding: 2px 10px;
+  border-radius: 100px;
+  padding: 2px 10px;
+  backdrop-filter: blur(6.8px);
+
+  color: var(--dark-main);
+  background-color: var(--main-transparent);
+
+  &.dark {
+    color: var(--main);
+    background-color: var(--dark-main-transparent);
+  }
+
+  &.red {
+    color: var(--dark-red);
+    background-color: var(--red-transparent);
 
     &.dark {
-        color: var(--main);
-        background-color: var(--dark-main);
+      color: var(--red);
+      background-color: var(--dark-red-transparent);
     }
+  }
 }
