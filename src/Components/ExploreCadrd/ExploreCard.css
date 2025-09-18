@@ -9,6 +9,8 @@
     overflow: hidden;
 
     .thumb-img {
+      width: 100%;
+      max-height: 400px;
       object-fit: cover;
       display: block;
     }
@@ -94,6 +96,11 @@
     }
 
     .desc {
+      display: -webkit-box; /* necesario para line-clamp */
+      -webkit-line-clamp: 3; /* número de líneas que quieres mostrar */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -109,24 +116,5 @@
     } */
 }
 
-/* Responsive tweaks */
-@media (min-width: 1100px) {
-  .thumb-img {
-    transition-duration: 400ms;
-  }
-}
-
-@media (max-width: 520px) {
-  .screenshots {
-    gap: 8px;
-  }
-
-  .shot {
-    width: 84px;
-    height: 48px;
-  }
-
-  .title {
-    font-size: 1rem;
-  }
+@media (max-width: 768px) {
 }

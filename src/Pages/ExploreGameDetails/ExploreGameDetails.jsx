@@ -16,32 +16,32 @@ const ExploreGameDetailsPage = () => {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    async function obtenerExploreDetails() {
-      setLoading(true);
-      const url = "https://api.gamebrain.co/v1/games/";
-      try {
-        const res = await axios.get(url + id, {
-          headers: {
-            "x-api-key": process.env.REACT_APP_GAMEBRAIN_KEY,
-          },
-        });
-
-        setExploreGameDetails(res.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error al obtener el JSON:", err);
-        setLoading(false);
-        setError("Error al obtener datos");
-      }
-    }
-    obtenerExploreDetails();
-  }, []);
-
   // useEffect(() => {
-  //   setExploreGameDetails(exploreGameDetailsExample);
-  //   setLoading(false);
+  //   async function obtenerExploreDetails() {
+  //     setLoading(true);
+  //     const url = "https://api.gamebrain.co/v1/games/";
+  //     try {
+  //       const res = await axios.get(url + id, {
+  //         headers: {
+  //           "x-api-key": process.env.REACT_APP_GAMEBRAIN_KEY,
+  //         },
+  //       });
+
+  //       setExploreGameDetails(res.data);
+  //       setLoading(false);
+  //     } catch (err) {
+  //       console.error("Error al obtener el JSON:", err);
+  //       setLoading(false);
+  //       setError("Error al obtener datos");
+  //     }
+  //   }
+  //   obtenerExploreDetails();
   // }, []);
+
+  useEffect(() => {
+    setExploreGameDetails(exploreGameDetailsExample);
+    setLoading(false);
+  }, []);
 
   return (
     <div>
