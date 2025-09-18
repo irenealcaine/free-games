@@ -1,21 +1,16 @@
 .explore-card {
   border-radius: 16px;
   overflow: hidden;
+  border: 2px solid var(--main);
+  margin-bottom: 16px;
 
   .thumb {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
     overflow: hidden;
-    background: linear-gradient(90deg, #081124, #0b1220);
 
     .thumb-img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
       display: block;
-      transform-origin: center;
-      transition: transform 350ms ease;
     }
 
     .badges {
@@ -26,27 +21,50 @@
       gap: 6px;
       z-index: 2;
     }
+    .rate {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 2;
+
+      .meta {
+        --size: 40px;
+        --thickness: 5px;
+        --percent: 0;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        position: relative;
+
+        /* el relleno: color de avance y color de fondo */
+        background: conic-gradient(
+          var(--green) calc(var(--percent) * 3.6deg),
+          transparent 0deg
+        );
+
+        /* transición suave al cambiar --percent (funciona en la mayoría de navegadores) */
+        transition: background 400ms linear;
+        font-family: system-ui, sans-serif;
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: calc(var(--thickness));
+          border-radius: 50%;
+          background: var(--dark-main);
+        }
+        .rating {
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
   }
 
   .explore-body {
-    padding: 0.8rem 0.9rem 1.1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    flex: 1 1 auto;
-
-    .meta {
-      display: flex;
-      gap: 0.6rem;
-      align-items: center;
-      font-size: 0.88rem;
-      color: #9aa6b2;
-
-      .rating {
-        font-weight: 700;
-        color: #7dd3fc;
-      }
-    }
+    padding: 16px;
 
     .screenshots {
       display: flex;
@@ -76,15 +94,6 @@
     }
 
     .desc {
-      color: #9aa6b2;
-      font-size: 0.88rem;
-      margin: 0;
-      margin-top: 4px;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
   }
 

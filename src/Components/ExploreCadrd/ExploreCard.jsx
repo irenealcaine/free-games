@@ -28,18 +28,18 @@ const ExploreCard = ({
           <Tag tag={year} />
           {adult && <Tag tag={"+18"} color={"red"} />}
         </div>
+        <div className="rate">
+          <p className={`meta`} style={{ "--percent": `${ratingMean * 100}` }}>
+            <span className="rating">{Math.round(ratingMean * 100)}</span>
+          </p>
+        </div>
       </div>
 
       <div className={`explore-body`}>
         <h2>{name}</h2>
-        <p className="meta">
-          <span className="rating">
-            ⭐ {Math.round(ratingMean * 100)} <small>({ratingCount})</small>
-          </span>
-        </p>
 
-        <div className="screenshots" aria-hidden="false">
-          {screenshots?.slice(0, 6).map((s, i) => (
+        <div className="screenshots">
+          {screenshots?.map((s, i) => (
             <img
               key={i}
               src={s}
@@ -50,15 +50,15 @@ const ExploreCard = ({
           ))}
         </div>
 
-        <p className="desc">{description ?? "Descripción no disponible."}</p>
-      </div>
+        <p className="desc">{description ?? null}</p>
 
-      <Button href={link} value={"Link"} />
-      <Button
-        color={"secondary"}
-        to={`/explore-game-details/${id}`}
-        value={"Details"}
-      />
+        <Button href={link} value={"Link"} />
+        <Button
+          color={"secondary"}
+          to={`/explore-game-details/${id}`}
+          value={"Details"}
+        />
+      </div>
     </div>
   );
 };

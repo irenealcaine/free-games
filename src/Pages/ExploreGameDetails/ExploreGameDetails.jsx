@@ -45,7 +45,7 @@ const ExploreGameDetailsPage = () => {
 
   return (
     <div>
-      <Content>
+      <Content loading={loading} error={error}>
         <h1>{exploreGameDetails.name}</h1>
         {console.log(exploreGameDetails)}
         <p>
