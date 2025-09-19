@@ -38,6 +38,8 @@ const ExploreCard = ({
       <div className={`explore-body`}>
         <h2>{name}</h2>
 
+        <p className="desc">{description ?? null}</p>
+
         <div className="screenshots">
           {screenshots?.map((s, i) => (
             <img
@@ -49,9 +51,6 @@ const ExploreCard = ({
             />
           ))}
         </div>
-
-        <p className="desc">{description ?? null}</p>
-
         <Button href={link} value={"Link"} />
         <Button
           color={"secondary"}

@@ -40,15 +40,10 @@
         place-items: center;
         position: relative;
 
-        /* el relleno: color de avance y color de fondo */
         background: conic-gradient(
           var(--green) calc(var(--percent) * 3.6deg),
           transparent 0deg
         );
-
-        /* transición suave al cambiar --percent (funciona en la mayoría de navegadores) */
-        transition: background 400ms linear;
-        font-family: system-ui, sans-serif;
 
         &::before {
           content: "";
