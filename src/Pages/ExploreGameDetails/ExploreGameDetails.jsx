@@ -44,27 +44,29 @@ const ExploreGameDetailsPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="game-page">
       <Content loading={loading} error={error}>
         <h1>{exploreGameDetails.name}</h1>
         {console.log(exploreGameDetails)}
-        <p>
-          {exploreGameDetails.description
-            ? exploreGameDetails.description
-            : exploreGameDetails.short_description
-            ? exploreGameDetails.short_description
-            : null}
-        </p>
+        <img className="game-cover"  src={exploreGameDetails.image} />
+
+        <div className="game-info">
+        <p>{exploreGameDetails.description ?? exploreGameDetails.short_description}</p>
         <p>{exploreGameDetails.developer}</p>
         <p>{exploreGameDetails.genre}</p>
         <p>{exploreGameDetails.release_date}</p>
+        </div>
+
         {exploreGameDetails.adult_only ? <p>adult_only</p> : null}
+
         {exploreGameDetails.genres ? (
           <div>
             <h2>Genres</h2>
+            <div className="tags-container">
             {exploreGameDetails.genres.map((genre) => (
-              <p>{genre.name}</p>
+              <p className="tag">{genre.name}</p>
             ))}
+            </div>
           </div>
         ) : null}
 
@@ -152,7 +154,6 @@ const ExploreGameDetailsPage = () => {
           </div>
         ) : null}
 
-        <img src={exploreGameDetails.image} />
 
         {exploreGameDetails.screenshots ? (
           <div>
