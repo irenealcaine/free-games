@@ -1,25 +1,6 @@
-:root {
-  --bg-dark: #121212;
-  --bg-light: #1e1e1e;
-  --accent: #ff6600;
-  --text-main: #fff;
-  --text-muted: #aaa;
-  --radius: 12px;
-}
 
-/* 🎮 Contenedor general */
-.game-page {
-  background: var(--bg-dark);
-  color: var(--text-main);
-  font-family: "Rajdhani", sans-serif;
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-  line-height: 1.6;
-}
 
-/* 🏷️ Títulos */
-.game-page h1 {
+/* .game-page h1 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
 }
@@ -30,7 +11,6 @@
   padding-left: 8px;
 }
 
-/* 🖼️ Imagen principal */
 .game-cover {
   width: 100%;
   max-width: 500px;
@@ -40,13 +20,11 @@
   margin: 1rem auto;
 }
 
-/* 📝 Info básica */
 .game-info p {
   margin: 0.4rem 0;
   color: var(--text-muted);
 }
 
-/* ⭐ Chips (géneros, tags, plataformas, etc.) */
 .tags-container {
   display: flex;
   flex-wrap: wrap;
@@ -63,7 +41,6 @@
   background: rgba(255,255,255,0.2);
 }
 
-/* 🛒 Ofertas */
 .offers {
   display: flex;
   flex-direction: column;
@@ -87,7 +64,6 @@
   opacity: 0.6;
 }
 
-/* ⭐ Ratings */
 .rating-box {
   display: flex;
   flex-direction: column;
@@ -98,7 +74,6 @@
   margin: 0;
 }
 
-/* 🖼️ Screenshots */
 .images-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -115,7 +90,6 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 
-/* 🔘 Botones */
 .btn {
   display: inline-block;
   padding: 8px 14px;
@@ -130,4 +104,110 @@
 .btn:hover {
   background: #ff8533;
   transform: scale(1.05);
+} */
+
+.game-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  background: #0f0f0f;
+  color: #f0f0f0;
+}
+
+h1, h2 {
+  font-family: "Orbitron", sans-serif; /* estilo gamer futurista */
+  color: #ff9800;
+  text-transform: uppercase;
+}
+.game-cover {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  margin-bottom: 1.5rem;
+}
+.game-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: .8rem;
+  margin-bottom: 2rem;
+}
+
+.game-info p {
+  background: #1c1c1c;
+  padding: .8rem 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #ff9800;
+}
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem 0;
+}
+
+.tag {
+  background: #2c2c2c;
+  border-radius: 999px;
+  padding: .4rem .8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ff9800;
+  border: 1px solid #ff9800;
+  transition: 0.2s;
+}
+
+.tag:hover {
+  background: #ff9800;
+  color: #121212;
+}
+.rating-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rating-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+.rating-critics, .rating-players {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.images-grid img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.images-grid img:hover {
+  transform: scale(1.05);
+}
+button, .btn {
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  border: none;
+  padding: .6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
 }
