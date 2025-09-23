@@ -15,7 +15,7 @@
     &::before {
         content: "";
         position: absolute;
-        inset: var(--thickness);
+        inset: calc(var(--size)/10);
         border-radius: 50%;
         background: var(--light);
 
@@ -25,7 +25,7 @@
         &::before {
             content: "";
             position: absolute;
-            inset: var(--thickness);
+            inset: calc(var(--size)/10);
             border-radius: 50%;
             background: var(--dark);
         }
@@ -34,6 +34,7 @@
     .number {
         position: relative;
         z-index: 1;
+        font-size: calc(var(--size)/2.5);
     }
 
 }
