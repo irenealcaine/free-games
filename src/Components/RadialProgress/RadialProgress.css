@@ -1,0 +1,28 @@
+.radial-progress {
+    --size: 40px;
+    --thickness: 5px;
+    --percent: 0;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: relative;
+
+    background: conic-gradient(var(--green) calc(var(--percent) * 3.6deg),
+            transparent 0deg);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: calc(var(--thickness));
+        border-radius: 50%;
+        background: var(--dark-main);
+    }
+
+    .number {
+        position: relative;
+        z-index: 1;
+    }
+
+}

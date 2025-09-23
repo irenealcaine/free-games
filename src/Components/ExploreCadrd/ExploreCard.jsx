@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import Tag from "../Tag/Tag";
+import RadialProgress from "../RadialProgress/RadialProgress";
 
 const ExploreCard = ({
   id,
@@ -29,9 +30,7 @@ const ExploreCard = ({
           {adult && <Tag tag={"+18"} color={"red"} />}
         </div>
         <div className="rate">
-          <p className={`meta`} style={{ "--percent": `${ratingMean * 100}` }}>
-            <span className="rating">{Math.round(ratingMean * 100)}</span>
-          </p>
+          <RadialProgress number={Math.round(ratingMean * 100)} size={40}/>
         </div>
       </div>
 

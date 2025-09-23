@@ -1,7 +1,9 @@
 import BlogCard from "../../Components/BlogCard/BlogCard";
 import Button from "../../Components/Button/Button";
+import Hr from "../../Components/Hr/Hr";
 import Loader from "../../Components/Loader/Loader";
 import ProductCard from "../../Components/ProductCard/ProductCard";
+import RadialProgress from "../../Components/RadialProgress/RadialProgress";
 import { posts } from "../../Data/BlogPosts";
 import { products } from "../../Data/Products";
 import "./Home.css";
@@ -53,6 +55,12 @@ const Home = () => {
       <Loader color={"green"} />
       <Loader color={"red"} />
       <Loader color={"purple"} />
+
+      <Hr/>
+
+      <RadialProgress number={50} size={100}/>
+
+      <Hr/>
 
       <h2>Blog Card</h2>
 
