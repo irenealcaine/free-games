@@ -28,8 +28,10 @@ const Home = () => {
         accusamus ut, veniam velit, amet dolore, at libero voluptatem iure?
       </p>
 
+      <Hr />
+
       <h2>Buttons</h2>
-      <div className="buttons-container">
+      <div className="container">
         <Button value={"Default"} href={"https://google.es"} />
         <Button
           value={"Secondary"}
@@ -49,6 +51,8 @@ const Home = () => {
         />
       </div>
 
+      <Hr />
+
       <h2>Loaders</h2>
       <Loader />
       <Loader color={"blue"} />
@@ -56,11 +60,17 @@ const Home = () => {
       <Loader color={"red"} />
       <Loader color={"purple"} />
 
-      <Hr/>
+      <Hr />
 
-      <RadialProgress number={50} size={100}/>
+      <h2>Progress bars</h2>
+      <div className="container">
+        <RadialProgress number={100} size={40} />
+        <RadialProgress number={80} size={40} />
+        <RadialProgress number={60} size={40} />
+        <RadialProgress number={40} size={40} />
+      </div>
 
-      <Hr/>
+      <Hr />
 
       <h2>Blog Card</h2>
 

@@ -1,6 +1,6 @@
 .radial-progress {
     --size: 40px;
-    --thickness: 5px;
+    --thickness: 3px;
     --percent: 0;
     width: var(--size);
     height: var(--size);
@@ -8,16 +8,27 @@
     display: grid;
     place-items: center;
     position: relative;
-
     background: conic-gradient(var(--green) calc(var(--percent) * 3.6deg),
-            transparent 0deg);
+            var(--light) 0deg);
+
 
     &::before {
         content: "";
         position: absolute;
-        inset: calc(var(--thickness));
+        inset: var(--thickness);
         border-radius: 50%;
-        background: var(--dark-main);
+        background: var(--light);
+
+    }
+
+    &.dark {
+        &::before {
+            content: "";
+            position: absolute;
+            inset: var(--thickness);
+            border-radius: 50%;
+            background: var(--dark);
+        }
     }
 
     .number {
